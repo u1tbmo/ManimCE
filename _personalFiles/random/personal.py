@@ -14,4 +14,5 @@ class NumberPlaneBG(Scene):
             }
         )
 
-        self.add(np)
+        self.play(Write(np))
+        self.wait(2)
