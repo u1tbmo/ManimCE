@@ -255,4 +255,53 @@ class credits(Scene):
         self.wait()
         self.play(FadeOut(creditsHeader))
         self.wait(3)
+
+class Intro(Scene):
+    def construct(self):
+        #VARS
+        limitsTitle = Text("Calculus - Optimization",font="CMU Serif").scale(1.25)
+        groupName = Tex("Limit of the Brain").scale(1.25)
+        chua = Tex("Chua, Arliyah Carmen")
+        dayao = Tex("Dayao, Sophia Nicole")
+        mariano = Tex("Mariano, Eunice Reign")
+        tabamo = Tex("Tabamo, Euan Jed")
+        members = VGroup(chua,dayao,mariano,tabamo).arrange(DOWN)
+
+
+        #SCENES
+        self.play(Write(limitsTitle),run_time=4)
+        self.wait(2)
+
+        self.play(Unwrite(limitsTitle))
+        self.wait(1)
+
+        self.play(Write(groupName),run_time=1.5)
+        self.wait(0.5)
+        self.play(groupName.animate.to_edge(UP))
+        self.wait(1)
+        
+        self.play(Write(members),run_time=4)
+        self.wait(2)
+
+        self.play(
+            FadeOut(groupName),
+            FadeOut(members),
+            run_time = 2
+        )
+        self.wait(2)
+
+class Outro(Scene):
+    def construct(self):
+        #VARS
+        bts = Text("Behind the Scenes", font="CMU Serif")
+        bts2 = Text("(mostly code...)", font="CMU Serif", font_size=24).next_to(bts,DOWN)
+        btsG = VGroup(bts,bts2).arrange(DOWN)
+
+        #RENDER
+        self.play(Write(bts), run_time=2)
+        self.wait(1)
+        self.play(Write(bts2), run_time=2)
+        self.wait(2)
+        self.play(FadeOut(bts), FadeOut(bts2))
+        self.wait()
         
